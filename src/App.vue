@@ -1,9 +1,8 @@
 <script setup>
-import ResumeBuilder from './views/ResumeBuilder.vue'
 </script>
 
 <template>
-  <ResumeBuilder />
+  <router-view />
 </template>
 
 <style>

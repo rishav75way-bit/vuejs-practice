@@ -8,6 +8,7 @@ import { useResume } from '@/composables/useResume'
 import { useTemplateManager } from '@/composables/useTemplateManager'
 import { usePdfExport } from '@/composables/usePdfExport'
 import { useImportExport } from '@/composables/useImportExport'
+import { loadDummyData } from '@/utils/dummyData'
 
 const { resume, visibility, sectionOrder } = useResume()
 const { template, setTemplate } = useTemplateManager()
@@ -60,6 +61,12 @@ const handleFileChange = async (event) => {
     }
   }
 }
+
+const handleLoadDummyData = () => {
+  if (confirm('This will replace all current data with sample data. Continue?')) {
+    loadDummyData()
+  }
+}
 </script>
 
 <template>
@@ -68,6 +75,13 @@ const handleFileChange = async (event) => {
       <div class="max-w-full px-6 py-4 flex items-center justify-between">
         <h1 class="text-2xl font-bold text-gray-900 m-0">Resume Builder</h1>
         <div class="flex gap-3 items-center">
+          <router-link 
+            to="/kanban" 
+            class="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 transition-colors"
+          >
+            Kanban Board →
+          </router-link>
+          
           <input
             ref="fileInput"
             type="file"
@@ -75,6 +89,13 @@ const handleFileChange = async (event) => {
             class="hidden"
             @change="handleFileChange"
           />
+          
+          <BaseButton
+            variant="secondary"
+            @click="handleLoadDummyData"
+          >
+            Load Sample Data
+          </BaseButton>
           
           <BaseButton
             variant="secondary"
