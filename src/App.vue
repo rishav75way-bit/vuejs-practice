@@ -1,16 +1,22 @@
 <script setup>
-import KanbanBoard from './components/kanban/KanbanBoard.vue';
+import ResumeBuilder from './views/ResumeBuilder.vue'
 </script>
 
 <template>
-  <main class="min-h-screen bg-slate-50">
-    <KanbanBoard />
-  </main>
+  <ResumeBuilder />
 </template>
 
 <style>
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 </style>
